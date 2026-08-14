@@ -1,71 +1,35 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#090d0d"><title>Pixel Forge — Study Room Art Pipeline</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="grain"></div>
-<div class="shell">
-  <header>
-    <a class="brand" href="#"><i>PF</i><span><b>PIXEL FORGE</b><small>IMAGE → GAME ASSET PIPELINE</small></span></a>
-    <div class="header-state"><span><i></i> LIVE PROCESSOR</span><b>BUILD 002</b></div>
-  </header>
-
-  <main>
-    <section class="intro">
-      <div><p class="eyebrow">PROCEDURAL ART DIRECTION / STUDY ROOM</p><h1>Start with atmosphere.<br><em>Then destroy the pixels.</em></h1></div>
-      <p>Instead of drawing every frame in CSS, use rich source art as raw material—then quantize, dither, crop, animate and export it in real time.</p>
-    </section>
-
-    <section class="forge">
-      <div class="forge-head">
-        <div><i></i><span>ROOM_COMPOSITE.PNG</span><small>1536 × 1536 / RGBA</small></div>
-        <div class="view-tabs"><button class="active" data-view="processed">PROCESSED</button><button data-view="split">SPLIT VIEW</button><button data-view="source">SOURCE</button></div>
-      </div>
-
-      <div class="viewport" id="viewport">
-        <canvas id="displayCanvas" width="1024" height="768"></canvas>
-        <div class="source-layer" id="sourceLayer"><img src="assets/study-room-source.png" alt="Original isometric study-room concept art"></div>
-        <div class="split-line" id="splitLine"><i></i><span>DRAG</span></div>
-        <div class="scanlines"></div>
-        <div class="player-marker m1"><span>01</span><b>AMINA</b><small>FOCUS · 28m</small></div>
-        <div class="player-marker m2"><span>02</span><b>NOAH</b><small>READING</small></div>
-        <div class="player-marker m3"><span>03</span><b>JIN</b><small>FOCUS · 41m</small></div>
-        <div class="player-marker m4"><span>04</span><b>LEILA</b><small>NOTES</small></div>
-        <div class="room-hud top"><span>DEEP WORK / PRIVATE ROOM</span><b>22:14:08</b></div>
-        <div class="room-hud bottom"><span><i></i> 4 CONNECTED</span><span>AMBIENCE: RAIN_02</span></div>
-      </div>
-
-      <aside class="controls">
-        <div class="controls-title"><span>PIXEL PROCESSOR</span><button id="resetBtn">RESET</button></div>
-        <div class="preset-row"><button data-preset="tactical" class="active">TACTICAL</button><button data-preset="lofi">LO-FI</button><button data-preset="gameboy">MONO</button></div>
-        <label class="control"><span>PIXEL RESOLUTION <output id="resOut">192 PX</output></span><input id="resolution" type="range" min="64" max="384" step="32" value="192"><small>CHUNKY</small><small>DETAILED</small></label>
-        <label class="control"><span>PALETTE COLORS <output id="colorsOut">16</output></span><input id="colors" type="range" min="4" max="32" step="4" value="16"><small>LIMITED</small><small>RICH</small></label>
-        <label class="control"><span>CONTRAST <output id="contrastOut">+12</output></span><input id="contrast" type="range" min="-30" max="40" step="1" value="12"></label>
-        <label class="control"><span>SATURATION <output id="satOut">−18</output></span><input id="saturation" type="range" min="-80" max="40" step="1" value="-18"></label>
-        <div class="select-control"><span>DITHER ALGORITHM</span><div class="segmented"><button data-dither="none">NONE</button><button data-dither="ordered" class="active">BAYER</button><button data-dither="floyd">FLOYD</button></div></div>
-        <label class="switch-row"><span><b>EDGE PRESERVATION</b><small>Blend luminance edges back after quantization</small></span><input id="edges" type="checkbox" checked><i></i></label>
-        <label class="switch-row"><span><b>CRT SCANLINES</b><small>Display effect only — excluded from export</small></span><input id="scanlineToggle" type="checkbox"><i></i></label>
-        <div class="palette"><span>GENERATED PALETTE</span><div id="paletteStrip"></div></div>
-        <button class="export" id="exportBtn"><span>↓</span> EXPORT PIXEL PNG <small id="exportSize">192 × 192</small></button>
-      </aside>
-    </section>
-
-    <section class="character-lab">
-      <div class="section-heading"><div><p class="eyebrow">IDENTITY PIPELINE</p><h2>One source sheet.<br>Four player identities.</h2></div><p>The same processor crops and quantizes individual characters. In production these layers can receive separate blink, breathing, typing and status animations without redrawing the room.</p></div>
-      <div class="character-grid" id="characterGrid"></div>
-      <div class="pipeline">
-        <div><span>01</span><b>SOURCE ART</b><small>Generate, photograph or illustrate</small></div><i>→</i><div><span>02</span><b>AUTO CROP</b><small>Detect silhouette and anchor</small></div><i>→</i><div><span>03</span><b>QUANTIZE</b><small>Shared room palette + dither</small></div><i>→</i><div><span>04</span><b>LAYER MOTION</b><small>Eyes, hands, light and status</small></div>
-      </div>
-    </section>
-  </main>
-  <footer><span>PIXEL FORGE / NO SPRITESHEETS REQUIRED</span><span>CANVAS 2D · PALETTE QUANTIZATION · ORDERED + ERROR-DIFFUSION DITHERING</span></footer>
-</div>
-<div class="processing" id="processing"><i></i><span>REBUILDING PIXELS</span></div>
-<script src="app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090d0d"><title>Study Room — Living Pixel Scene</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
+<body><div class="grain"></div><div class="shell">
+<header><a class="brand" href="#"><i>SR</i><span><b>STUDY ROOM</b><small>LAYERED CHARACTER PROTOTYPE</small></span></a><div class="online"><i></i> ROOM ONLINE <b id="clock">22:14:08</b></div></header>
+<main><section class="intro"><div><p class="eyebrow">IMAGE LAYERS / PROCEDURAL MOTION</p><h1>The room is an image.<br><em>The people are not.</em></h1></div><p>Each student is now an independent pixel layer—with their own posture, blink rhythm, breathing loop and activity animation.</p></section>
+<section class="studio">
+  <div class="stage-panel">
+    <div class="stage-bar"><span><i></i> LIVE_SCENE_04</span><div><button id="sourceToggle">◐ SOURCE</button><button id="motionToggle">Ⅱ PAUSE</button><button id="fullscreenBtn">⛶ EXPAND</button></div></div>
+    <div class="scene" id="scene">
+      <canvas id="roomCanvas" width="256" height="256"></canvas>
+      <div class="light-pool"></div><div class="rain" id="rain"></div>
+      <div class="player rear northwest" data-player="0"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity writing">✎</span><div class="tag"><b>NOAH</b><small>WRITING · 28:42</small></div></div>
+      <div class="player rear northeast" data-player="1"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity reading">⌁</span><div class="tag"><b>AMINA</b><small>READING · 16:08</small></div></div>
+      <div class="player front southwest" data-player="2"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity thinking">···</span><div class="tag"><b>LEILA</b><small>THINKING · 04:11</small></div></div>
+      <div class="player front southeast" data-player="3"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity typing">⌨</span><div class="tag"><b>JIN</b><small>TYPING · 41:20</small></div></div>
+      <div class="scene-hud top"><span>DEEP WORK / ROOM 04</span><b>4 / 4</b></div><div class="scene-hud bottom"><span><i></i> SYNCED</span><span>RAIN_02 · 32%</span></div>
+      <div class="source-badge">SOURCE PLATE / MOTION DISABLED</div>
+    </div>
+  </div>
+  <aside class="control-panel">
+    <div class="panel-title"><span>SCENE DIRECTOR</span><i>LIVE</i></div>
+    <div class="render-control"><label>PIXEL DENSITY <output id="densityOut">256</output></label><input id="density" type="range" min="96" max="384" step="32" value="256"><div><span>CHUNKY</span><span>DETAILED</span></div></div>
+    <div class="render-control"><label>COLOR DEPTH <output id="colorOut">12</output></label><input id="colorDepth" type="range" min="4" max="24" step="4" value="12"><div><span>4 COLORS</span><span>24 COLORS</span></div></div>
+    <div class="divider"><span>PLAYER ACTIVITY</span></div>
+    <div class="player-controls">
+      <button data-select="0" class="active"><span>01</span><i class="portrait p1"></i><b>NOAH<small>WRITING</small></b><em></em></button>
+      <button data-select="1"><span>02</span><i class="portrait p2"></i><b>AMINA<small>READING</small></b><em></em></button>
+      <button data-select="2"><span>03</span><i class="portrait p3"></i><b>LEILA<small>THINKING</small></b><em></em></button>
+      <button data-select="3"><span>04</span><i class="portrait p4"></i><b>JIN<small>TYPING</small></b><em></em></button>
+    </div>
+    <div class="motion-picker"><span>MOTION STATE / <b id="selectedName">NOAH</b></span><div><button data-motion="focus" class="active">FOCUS</button><button data-motion="think">THINK</button><button data-motion="break">BREAK</button><button data-motion="done">DONE</button></div></div>
+    <div class="motion-notes"><span>ACTIVE LAYERS</span><ul><li><i></i>Torso breathing <b>3.8s</b></li><li><i></i>Irregular blink <b>5.2s</b></li><li><i></i>Hand micro-motion <b>1.4s</b></li><li><i></i>Screen light response <b>LIVE</b></li></ul></div>
+  </aside>
+</section>
+<section class="method"><div><p class="eyebrow">THE ACTUAL APPROACH</p><h2>Separate what needs to move.</h2></div><div class="method-grid"><article><span>01</span><b>BACKGROUND PLATE</b><p>The empty room carries all expensive detail: furniture, lighting and atmosphere.</p></article><article><span>02</span><b>PLAYER LAYERS</b><p>Four transparent seated characters can be positioned, swapped and personalized independently.</p></article><article><span>03</span><b>REGION MOTION</b><p>Upper body, eyes and hands move on separate masks. Motion stays subtle rather than cartoonish.</p></article><article><span>04</span><b>ONE PALETTE PASS</b><p>Canvas quantization makes generated layers feel like one intentional pixel-art scene.</p></article></div></section>
+</main><footer><span>LAYERED PIXEL CHARACTER TEST / 03</span><span>CANVAS · ALPHA LAYERS · CSS MOTION · NO SPRITESHEET</span></footer></div><div class="loading" id="loading"><i></i><span>BUILDING SCENE</span></div><script src="app.js"></script></body></html>
