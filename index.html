@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0f10" />
+  <title>Study Room — Pixel Rendering Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="shell">
+    <header>
+      <a class="brand" href="#"><span class="brand-glyph">SR</span><span><b>STUDY ROOM</b><small>RENDER LAB / 01</small></span></a>
+      <div class="session"><i></i><span>ROOM ONLINE</span><b>42:18</b></div>
+    </header>
+
+    <main>
+      <section class="heading">
+        <div><p class="kicker">CHARACTER SYSTEM EXPLORATION</p><h1>One room.<br><span>Three engines.</span></h1></div>
+        <p class="lede">A mature, code-built pixel room for four focused players. Switch rendering methods without changing the scene, identity system, or motion language.</p>
+      </section>
+
+      <section class="workbench">
+        <nav class="engine-tabs" aria-label="Rendering engine">
+          <button class="engine-tab active" data-engine="shadow"><span>01</span><b>CSS SHADOW</b><small>One node, mapped pixels</small></button>
+          <button class="engine-tab" data-engine="dom"><span>02</span><b>DOM GRID</b><small>Readable, modular parts</small></button>
+          <button class="engine-tab" data-engine="canvas"><span>03</span><b>CANVAS</b><small>Fast, scalable runtime</small></button>
+        </nav>
+
+        <div class="room-frame">
+          <div class="frame-bar">
+            <div><i></i><span id="engineLabel">CSS SHADOW ENGINE</span></div>
+            <div class="frame-actions"><button id="motionToggle">Ⅱ&nbsp; PAUSE MOTION</button><button id="gridToggle">#&nbsp; PIXEL GRID</button></div>
+          </div>
+          <div class="room-viewport" id="viewport">
+            <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+            <div class="grid-floor"></div>
+            <div id="cssScene" class="scene-layer css-scene active"></div>
+            <div id="domScene" class="scene-layer dom-scene"></div>
+            <canvas id="roomCanvas" class="scene-layer" width="960" height="600" aria-label="Canvas-rendered isometric study room"></canvas>
+            <div class="room-title"><span>DEEP WORK / GROUP 04</span><small>MONTRÉAL · 22:14</small></div>
+            <div class="room-status"><i></i><span>4 / 4 FOCUSED</span></div>
+          </div>
+        </div>
+
+        <aside class="inspector">
+          <div class="inspector-head"><span>ENGINE NOTES</span><i id="engineNo">01</i></div>
+          <div class="metric"><span>DOM NODES</span><b id="nodes">29</b><div><i id="nodeBar" style="width:18%"></i></div></div>
+          <div class="metric"><span>SCENE WEIGHT</span><b id="weight">LIGHT</b><div><i id="weightBar" style="width:24%"></i></div></div>
+          <div class="metric"><span>EDITABILITY</span><b id="edit">LOW</b><div><i id="editBar" style="width:32%"></i></div></div>
+          <p class="engine-note" id="engineNote">A pixel map becomes a single box-shadow declaration. Extremely lean markup; painful to hand-author, but ideal when generated from a tiny matrix.</p>
+          <div class="code-preview"><div><span>LIVE RECIPE</span><button id="copyCode">COPY</button></div><pre id="code">.avatar {
+  width: 4px;
+  height: 4px;
+  box-shadow: var(--pixel-map);
+  animation: focus 1.8s steps(2);
+}</pre></div>
+          <p class="recommendation"><span>VERDICT</span><b id="verdict">Best for small, fixed avatars</b></p>
+        </aside>
+      </section>
+
+      <section class="identity-section">
+        <div class="section-head"><div><p class="kicker">IDENTITY WITHOUT MASCOTS</p><h2>Silhouette first.</h2></div><p>Adult proportions, restrained expressions, clothing and posture do the work. No oversized heads, candy colors, or mascot energy.</p></div>
+        <div class="identity-grid" id="identityGrid"></div>
+      </section>
+    </main>
+    <footer><span>PROCEDURAL PIXEL STUDY / V0.1</span><span>HTML · CSS · CANVAS · ZERO SPRITESHEETS</span></footer>
+  </div>
+  <div class="toast" id="toast">RECIPE COPIED</div>
+  <script src="app.js"></script>
+</body>
+</html>
