@@ -4,14 +4,15 @@
 <main><section class="intro"><div><p class="eyebrow">IMAGE LAYERS / PROCEDURAL MOTION</p><h1>The room is an image.<br><em>The people are not.</em></h1></div><p>Each student is now an independent pixel layer—with their own posture, blink rhythm, breathing loop and activity animation.</p></section>
 <section class="studio">
   <div class="stage-panel">
-    <div class="stage-bar"><span><i></i> LIVE_SCENE_04</span><div><button id="sourceToggle">◐ SOURCE</button><button id="motionToggle">Ⅱ PAUSE</button><button id="fullscreenBtn">⛶ EXPAND</button></div></div>
+    <div class="stage-bar"><span><i></i> LIVE_SCENE_04</span><div><button id="bonesToggle">⌘ BONES</button><button id="sourceToggle">◐ SOURCE</button><button id="motionToggle">Ⅱ PAUSE</button><button id="fullscreenBtn">⛶ EXPAND</button></div></div>
     <div class="scene" id="scene">
       <canvas id="roomCanvas" width="256" height="256"></canvas>
+      <canvas id="rigCanvas" width="256" height="256" aria-label="Four articulated pixel characters studying around a table"></canvas>
       <div class="light-pool"></div><div class="rain" id="rain"></div>
-      <div class="player rear northwest" data-player="0"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity writing">✎</span><div class="tag"><b>NOAH</b><small>WRITING · 28:42</small></div></div>
-      <div class="player rear northeast" data-player="1"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity reading">⌁</span><div class="tag"><b>AMINA</b><small>READING · 16:08</small></div></div>
-      <div class="player front southwest" data-player="2"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity thinking">···</span><div class="tag"><b>LEILA</b><small>THINKING · 04:11</small></div></div>
-      <div class="player front southeast" data-player="3"><canvas></canvas><canvas class="upper"></canvas><i class="blink"></i><span class="activity typing">⌨</span><div class="tag"><b>JIN</b><small>TYPING · 41:20</small></div></div>
+      <button class="rig-hit northwest-hit" data-player="0" aria-label="Select Noah"></button>
+      <button class="rig-hit northeast-hit" data-player="1" aria-label="Select Amina"></button>
+      <button class="rig-hit southwest-hit" data-player="2" aria-label="Select Leila"></button>
+      <button class="rig-hit southeast-hit" data-player="3" aria-label="Select Jin"></button>
       <div class="scene-hud top"><span>DEEP WORK / ROOM 04</span><b>4 / 4</b></div><div class="scene-hud bottom"><span><i></i> SYNCED</span><span>RAIN_02 · 32%</span></div>
       <div class="source-badge">SOURCE PLATE / MOTION DISABLED</div>
     </div>
