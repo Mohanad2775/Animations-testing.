@@ -1,76 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b0f10" />
-  <title>Study Room — Pixel Rendering Lab</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090d0d"><title>Pixel Forge — Study Room Art Pipeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="noise"></div>
-  <div class="shell">
-    <header>
-      <a class="brand" href="#"><span class="brand-glyph">SR</span><span><b>STUDY ROOM</b><small>RENDER LAB / 01</small></span></a>
-      <div class="session"><i></i><span>ROOM ONLINE</span><b>42:18</b></div>
-    </header>
+<div class="grain"></div>
+<div class="shell">
+  <header>
+    <a class="brand" href="#"><i>PF</i><span><b>PIXEL FORGE</b><small>IMAGE → GAME ASSET PIPELINE</small></span></a>
+    <div class="header-state"><span><i></i> LIVE PROCESSOR</span><b>BUILD 002</b></div>
+  </header>
 
-    <main>
-      <section class="heading">
-        <div><p class="kicker">CHARACTER SYSTEM EXPLORATION</p><h1>One room.<br><span>Three engines.</span></h1></div>
-        <p class="lede">A mature, code-built pixel room for four focused players. Switch rendering methods without changing the scene, identity system, or motion language.</p>
-      </section>
+  <main>
+    <section class="intro">
+      <div><p class="eyebrow">PROCEDURAL ART DIRECTION / STUDY ROOM</p><h1>Start with atmosphere.<br><em>Then destroy the pixels.</em></h1></div>
+      <p>Instead of drawing every frame in CSS, use rich source art as raw material—then quantize, dither, crop, animate and export it in real time.</p>
+    </section>
 
-      <section class="workbench">
-        <nav class="engine-tabs" aria-label="Rendering engine">
-          <button class="engine-tab active" data-engine="shadow"><span>01</span><b>CSS SHADOW</b><small>One node, mapped pixels</small></button>
-          <button class="engine-tab" data-engine="dom"><span>02</span><b>DOM GRID</b><small>Readable, modular parts</small></button>
-          <button class="engine-tab" data-engine="canvas"><span>03</span><b>CANVAS</b><small>Fast, scalable runtime</small></button>
-        </nav>
+    <section class="forge">
+      <div class="forge-head">
+        <div><i></i><span>ROOM_COMPOSITE.PNG</span><small>1536 × 1536 / RGBA</small></div>
+        <div class="view-tabs"><button class="active" data-view="processed">PROCESSED</button><button data-view="split">SPLIT VIEW</button><button data-view="source">SOURCE</button></div>
+      </div>
 
-        <div class="room-frame">
-          <div class="frame-bar">
-            <div><i></i><span id="engineLabel">CSS SHADOW ENGINE</span></div>
-            <div class="frame-actions"><button id="motionToggle">Ⅱ&nbsp; PAUSE MOTION</button><button id="gridToggle">#&nbsp; PIXEL GRID</button></div>
-          </div>
-          <div class="room-viewport" id="viewport">
-            <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
-            <div class="grid-floor"></div>
-            <div id="cssScene" class="scene-layer css-scene active"></div>
-            <div id="domScene" class="scene-layer dom-scene"></div>
-            <canvas id="roomCanvas" class="scene-layer" width="960" height="600" aria-label="Canvas-rendered isometric study room"></canvas>
-            <div class="room-title"><span>DEEP WORK / GROUP 04</span><small>MONTRÉAL · 22:14</small></div>
-            <div class="room-status"><i></i><span>4 / 4 FOCUSED</span></div>
-          </div>
-        </div>
+      <div class="viewport" id="viewport">
+        <canvas id="displayCanvas" width="1024" height="768"></canvas>
+        <div class="source-layer" id="sourceLayer"><img src="assets/study-room-source.png" alt="Original isometric study-room concept art"></div>
+        <div class="split-line" id="splitLine"><i></i><span>DRAG</span></div>
+        <div class="scanlines"></div>
+        <div class="player-marker m1"><span>01</span><b>AMINA</b><small>FOCUS · 28m</small></div>
+        <div class="player-marker m2"><span>02</span><b>NOAH</b><small>READING</small></div>
+        <div class="player-marker m3"><span>03</span><b>JIN</b><small>FOCUS · 41m</small></div>
+        <div class="player-marker m4"><span>04</span><b>LEILA</b><small>NOTES</small></div>
+        <div class="room-hud top"><span>DEEP WORK / PRIVATE ROOM</span><b>22:14:08</b></div>
+        <div class="room-hud bottom"><span><i></i> 4 CONNECTED</span><span>AMBIENCE: RAIN_02</span></div>
+      </div>
 
-        <aside class="inspector">
-          <div class="inspector-head"><span>ENGINE NOTES</span><i id="engineNo">01</i></div>
-          <div class="metric"><span>DOM NODES</span><b id="nodes">29</b><div><i id="nodeBar" style="width:18%"></i></div></div>
-          <div class="metric"><span>SCENE WEIGHT</span><b id="weight">LIGHT</b><div><i id="weightBar" style="width:24%"></i></div></div>
-          <div class="metric"><span>EDITABILITY</span><b id="edit">LOW</b><div><i id="editBar" style="width:32%"></i></div></div>
-          <p class="engine-note" id="engineNote">A pixel map becomes a single box-shadow declaration. Extremely lean markup; painful to hand-author, but ideal when generated from a tiny matrix.</p>
-          <div class="code-preview"><div><span>LIVE RECIPE</span><button id="copyCode">COPY</button></div><pre id="code">.avatar {
-  width: 4px;
-  height: 4px;
-  box-shadow: var(--pixel-map);
-  animation: focus 1.8s steps(2);
-}</pre></div>
-          <p class="recommendation"><span>VERDICT</span><b id="verdict">Best for small, fixed avatars</b></p>
-        </aside>
-      </section>
+      <aside class="controls">
+        <div class="controls-title"><span>PIXEL PROCESSOR</span><button id="resetBtn">RESET</button></div>
+        <div class="preset-row"><button data-preset="tactical" class="active">TACTICAL</button><button data-preset="lofi">LO-FI</button><button data-preset="gameboy">MONO</button></div>
+        <label class="control"><span>PIXEL RESOLUTION <output id="resOut">192 PX</output></span><input id="resolution" type="range" min="64" max="384" step="32" value="192"><small>CHUNKY</small><small>DETAILED</small></label>
+        <label class="control"><span>PALETTE COLORS <output id="colorsOut">16</output></span><input id="colors" type="range" min="4" max="32" step="4" value="16"><small>LIMITED</small><small>RICH</small></label>
+        <label class="control"><span>CONTRAST <output id="contrastOut">+12</output></span><input id="contrast" type="range" min="-30" max="40" step="1" value="12"></label>
+        <label class="control"><span>SATURATION <output id="satOut">−18</output></span><input id="saturation" type="range" min="-80" max="40" step="1" value="-18"></label>
+        <div class="select-control"><span>DITHER ALGORITHM</span><div class="segmented"><button data-dither="none">NONE</button><button data-dither="ordered" class="active">BAYER</button><button data-dither="floyd">FLOYD</button></div></div>
+        <label class="switch-row"><span><b>EDGE PRESERVATION</b><small>Blend luminance edges back after quantization</small></span><input id="edges" type="checkbox" checked><i></i></label>
+        <label class="switch-row"><span><b>CRT SCANLINES</b><small>Display effect only — excluded from export</small></span><input id="scanlineToggle" type="checkbox"><i></i></label>
+        <div class="palette"><span>GENERATED PALETTE</span><div id="paletteStrip"></div></div>
+        <button class="export" id="exportBtn"><span>↓</span> EXPORT PIXEL PNG <small id="exportSize">192 × 192</small></button>
+      </aside>
+    </section>
 
-      <section class="identity-section">
-        <div class="section-head"><div><p class="kicker">IDENTITY WITHOUT MASCOTS</p><h2>Silhouette first.</h2></div><p>Adult proportions, restrained expressions, clothing and posture do the work. No oversized heads, candy colors, or mascot energy.</p></div>
-        <div class="identity-grid" id="identityGrid"></div>
-      </section>
-    </main>
-    <footer><span>PROCEDURAL PIXEL STUDY / V0.1</span><span>HTML · CSS · CANVAS · ZERO SPRITESHEETS</span></footer>
-  </div>
-  <div class="toast" id="toast">RECIPE COPIED</div>
-  <script src="app.js"></script>
+    <section class="character-lab">
+      <div class="section-heading"><div><p class="eyebrow">IDENTITY PIPELINE</p><h2>One source sheet.<br>Four player identities.</h2></div><p>The same processor crops and quantizes individual characters. In production these layers can receive separate blink, breathing, typing and status animations without redrawing the room.</p></div>
+      <div class="character-grid" id="characterGrid"></div>
+      <div class="pipeline">
+        <div><span>01</span><b>SOURCE ART</b><small>Generate, photograph or illustrate</small></div><i>→</i><div><span>02</span><b>AUTO CROP</b><small>Detect silhouette and anchor</small></div><i>→</i><div><span>03</span><b>QUANTIZE</b><small>Shared room palette + dither</small></div><i>→</i><div><span>04</span><b>LAYER MOTION</b><small>Eyes, hands, light and status</small></div>
+      </div>
+    </section>
+  </main>
+  <footer><span>PIXEL FORGE / NO SPRITESHEETS REQUIRED</span><span>CANVAS 2D · PALETTE QUANTIZATION · ORDERED + ERROR-DIFFUSION DITHERING</span></footer>
+</div>
+<div class="processing" id="processing"><i></i><span>REBUILDING PIXELS</span></div>
+<script src="app.js"></script>
 </body>
 </html>
